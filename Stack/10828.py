@@ -1,3 +1,4 @@
+#time error
 num = int(input())
 array = []
 count = -1
