@@ -1,6 +1,6 @@
 num = int(input())
 array = []
-count = 0
+count = -1
 
 def push(obj, count):
   array.append(obj)
@@ -8,23 +8,24 @@ def push(obj, count):
   return count
 
 def pop(count):
-  if count == 0:
-    return -1
+  if count == -1:
+    return count, -1
   else:
+    result = array.pop(count)
     count = count -1
-    return array.pop(count)
+    return count, result
 
 def size():
   return len(array)
 
 def empty():
-  if count == 0:
+  if count == -1:
     return 1
   else:
     return 0
 
 def top():
-  if count == 0:
+  if count == -1:
     return -1
   else:
     return array[count] 
@@ -38,7 +39,7 @@ for i in range(num):
     num = int(num)
     count = push(num, count)
   elif command == 'pop':
-    result = pop(count)
+    count, result = pop(count)
     print(result)
   elif command == 'size':
     result = size()
